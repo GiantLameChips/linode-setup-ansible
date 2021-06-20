@@ -1,35 +1,36 @@
-hosts: all
- - name: Update APT package cache
-   apt: update_cache=yes cache_valid_time=3600
- - name: Upgrade APT to the latest packages
-   apt: upgrade=safe
- - name: apt install
-   apt:
-    pkg:
-     - nano
-     - zsh
-     - ufw
-     - unattended-upgrades 
-     - apt-listchanges
-     - fail2ban
-     - docker
-     - python3
- - name: Add the user Jonty
-   ansible.builtin.user:
+---
+- hosts: all
+  tasks:
+  - name: Update APT package cache
+    apt: update_cache=yes cache_valid_time=3600
+  - name: Upgrade APT to the latest packages
+    apt: upgrade=safe
+  - name: apt install
+    apt:
+     pkg:
+      - nano
+      - zsh
+      - ufw
+      - unattended-upgrades
+      - apt-listchanges
+      - fail2ban
+      - docker
+      - python3
+  - name: Add the user Jonty
+    ansible.builtin.user:
      name: jonty
      groups: sudo
      shell: /bin/zsh
      create_home: 'true'
      password: 1234
- - name: Set authorized key taken from file
-   ansible.posix.authorized_key:
+  - name: Set authorized key taken from file
+    ansible.posix.authorized_key:
      user: jonty
      state: present
      key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF3razQ7lq0fnMLPbLBaeHIvIa/elHMc1AaEGnU7NWJX jontyms@protonmail.com"
- - block: Jonty Tasks
-   - name: install oh my zsh
-      command: 'sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
-      command: '~ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting'
-      command: '~ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions'
-      command: 
-   become_user: jonty 
+  - block: Jonty Tasks
+      - name: install oh my zsh
+        command: 'sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
+        command: '~ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting'
+        command: '~ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions'
+     become_user: jonty
