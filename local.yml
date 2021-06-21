@@ -34,12 +34,12 @@
      key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF3razQ7lq0fnMLPbLBaeHIvIa/elHMc1AaEGnU7NWJX jontyms@protonmail.com"
   - name: jonty tasks
     block:
-     #- name: install oh my zsh
-      # raw: sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+     - name: install oh my zsh
+       raw: zsh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
      - name: zsh syntax
-       raw: ~ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+       raw: zsh ~ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
      - name: zsh autosuggestions
-       raw: ~ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+       raw: zsh ~ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
     become: true
     become_user: jonty
 ...
