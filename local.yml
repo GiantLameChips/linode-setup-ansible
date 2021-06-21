@@ -36,11 +36,11 @@
     block:
      - name: install oh my zsh
        raw: zsh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-  - name: Copy zsh config
-    ansible.builtin.template:
-      src: configs/.zshrc
-      dest: ~/.zshrc
-      mode: '0640'
+     - name: Copy zsh config
+       ansible.builtin.template:
+         src: configs/.zshrc
+         dest: ~/.zshrc
+         mode: '0640'
     become: true
     become_user: jonty
 ...
