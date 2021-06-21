@@ -16,6 +16,8 @@
       - fail2ban
       - docker
       - python3
+  - name: install modules
+    ansible.bultin.command: 'ansible-galaxy collection install ansible.posix'
   - name: Add the user Jonty
     ansible.builtin.user:
      name: jonty
