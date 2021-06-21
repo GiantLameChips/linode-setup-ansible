@@ -23,8 +23,8 @@
      name: jonty
      groups: sudo
      shell: /bin/zsh
-     create_home: 'true'
-     password: 1234
+     create_home: true
+     password: '1234'
   - name: chown jonty
     raw: chown jonty /home/jonty/ 
   - name: Set authorized key taken from file
@@ -40,5 +40,6 @@
        raw: ~ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
      - name: zsh autosuggestions
        raw: ~ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+    become: true
     become_user: jonty
 ...
