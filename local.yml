@@ -30,11 +30,11 @@
      key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF3razQ7lq0fnMLPbLBaeHIvIa/elHMc1AaEGnU7NWJX jontyms@protonmail.com"
   - name: jonty tasks
     block:
-    - name: install oh my zsh
-      ansible.builtin.command: 'sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
-    - name: zsh syntax
-      ansible.builtin.command: '~ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting'
-    - name: zsh autosuggestions
-      ansible.builtin.command: '~ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions'
+     - name: install oh my zsh
+       ansible.builtin.command: 'sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
+     - name: zsh syntax
+       ansible.builtin.command: '~ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting'
+     - name: zsh autosuggestions
+       ansible.builtin.command: '~ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions'
     become_user: jonty
 ...
