@@ -38,10 +38,10 @@
        raw: zsh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
      - name: Touch a file, using symbolic modes to set the permissions (equivalent to 0644)
        ansible.builtin.file:
-         path: ~/zshrc
+         path: ~/.zshrc
      - name: setup
        lineinfile: 
-        path: ~./zshrc 
+        path: ~/.zshrc 
         regexp: '^(.*)plugins(.*)$' 
         line: 'plugins=(git history-substring-search colored-man-pages)'
         backrefs: yes
