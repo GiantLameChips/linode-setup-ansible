@@ -24,7 +24,7 @@
      groups: sudo
      shell: /bin/zsh
      create_home: true
-     password: '1234'
+     password: '$6$HoKZKqbi$nYVvf0b2L3uTCWW3ARkeT3N0EIvNpIl9cGHwqf9eIKZ3Txmpaz4crfhI/4iqwWB6Q5NUOxQtOurMAf3G6LWdb.'
   - name: chown jonty
     raw: chown jonty /home/jonty/ 
   - name: Set authorized key taken from file
