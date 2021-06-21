@@ -25,6 +25,8 @@
      shell: /bin/zsh
      create_home: 'true'
      password: 1234
+  - name: chown jonty
+    raw: chown jonty /home/jonty/ 
   - name: Set authorized key taken from file
     ansible.posix.authorized_key:
      user: jonty
