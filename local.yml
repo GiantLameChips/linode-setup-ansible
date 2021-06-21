@@ -17,7 +17,7 @@
       - docker
       - python3
   - name: install modules
-    raw: ansible-galaxy collection install ansible.posix.authorized_key
+    raw: ansible-galaxy collection install ansible.posix
   - name: Add the user Jonty
     ansible.builtin.user:
      name: jonty
